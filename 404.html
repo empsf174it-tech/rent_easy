@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Easy | 404 Not Found</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0A0F1C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="nav-on-dark" style="display: flex; flex-direction: column; min-height: 100vh;">
+
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">RENT EASY</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="fleet.html" class="nav-link">Fleet</a></li>
+        <li><a href="booking.html" class="nav-link">Book Now</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle desktop-only" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+        <button class="rtl-toggle desktop-only" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+        <a href="login.html" class="btn btn-outline btn-sm desktop-only">Login</a>
+        <button class="hamburger" aria-label="Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="index.html" class="logo">RENT EASY</a>
+      <button class="close-drawer" aria-label="Close Menu"><i class="ph ph-x"></i></button>
+    </div>
+    <div class="drawer-links">
+      <a href="index.html" class="nav-link">Home <i class="ph ph-arrow-up-right"></i></a>
+      <a href="about.html" class="nav-link">About Us <i class="ph ph-arrow-up-right"></i></a>
+      <a href="fleet.html" class="nav-link">Fleet <i class="ph ph-arrow-up-right"></i></a>
+      <a href="booking.html" class="nav-link">Book Now <i class="ph ph-arrow-up-right"></i></a>
+      <a href="contact.html" class="nav-link">Contact <i class="ph ph-arrow-up-right"></i></a>
+      <a href="dashboard.html" class="nav-link">Dashboard <i class="ph ph-arrow-up-right"></i></a>
+      <a href="login.html" class="nav-link">Login <i class="ph ph-arrow-up-right"></i></a>
+    </div>
+    <div class="drawer-actions">
+      <button class="theme-toggle"><i class="ph ph-moon"></i> Toggle Theme</button>
+      <button class="rtl-toggle"><i class="ph ph-arrows-left-right"></i> Toggle Direction</button>
+    </div>
+  </aside>
+
+  <main class="page-header" style="flex:1; display:flex; align-items:center; padding-block: calc(var(--nav-h) + var(--spacing-8)) var(--spacing-8);">
+    <div class="container">
+      <div style="max-width: 640px; margin: 0 auto;">
+        <span class="eyebrow" style="color: var(--gold-200);">Error 404</span>
+        <h1 class="gold-text" style="font-size: clamp(5rem, 16vw, 10rem); line-height: .9; letter-spacing: -0.05em; margin-bottom: var(--spacing-4);">404</h1>
+        <h2 style="margin-bottom: var(--spacing-3);">Road block ahead</h2>
+        <p style="font-size: 1.0625rem; margin-bottom: var(--spacing-6);">
+          The page you're looking for seems to have taken a wrong turn. Let's get you back on route.
+        </p>
+        <div style="display:flex; gap: var(--spacing-3); justify-content:center; flex-wrap:wrap;">
+          <a href="index.html" class="btn btn-primary btn-lg"><i class="ph ph-house"></i> Return Home</a>
+          <a href="fleet.html" class="btn btn-outline btn-lg" style="border-color: rgba(255,255,255,.35); color:#fff;">Browse the Fleet</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" style="padding-block: var(--spacing-6);">
+    <div class="container text-center">
+      <p style="color: rgba(255,255,255,.45); font-size: var(--fs-small);">&copy; 2026 Rent Easy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

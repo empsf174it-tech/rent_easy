@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Easy | Our Fleet</title>
+  <meta name="description" content="Browse the Rent Easy fleet — luxury sedans, sports cars, SUVs and electric vehicles, filterable by class, transmission, seats and budget.">
+  <meta name="theme-color" content="#0A0F1C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="nav-on-dark">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">RENT EASY</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="fleet.html" class="nav-link active">Fleet</a></li>
+        <li><a href="booking.html" class="nav-link">Book Now</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle desktop-only" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+        <button class="rtl-toggle desktop-only" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+        <a href="login.html" class="btn btn-outline btn-sm desktop-only">Login</a>
+        <button class="hamburger" aria-label="Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="index.html" class="logo">RENT EASY</a>
+      <button class="close-drawer" aria-label="Close Menu"><i class="ph ph-x"></i></button>
+    </div>
+    <div class="drawer-links">
+      <a href="index.html" class="nav-link">Home <i class="ph ph-arrow-up-right"></i></a>
+      <a href="about.html" class="nav-link">About Us <i class="ph ph-arrow-up-right"></i></a>
+      <a href="fleet.html" class="nav-link active">Fleet <i class="ph ph-arrow-up-right"></i></a>
+      <a href="booking.html" class="nav-link">Book Now <i class="ph ph-arrow-up-right"></i></a>
+      <a href="contact.html" class="nav-link">Contact <i class="ph ph-arrow-up-right"></i></a>
+      <a href="dashboard.html" class="nav-link">Dashboard <i class="ph ph-arrow-up-right"></i></a>
+      <a href="login.html" class="nav-link">Login <i class="ph ph-arrow-up-right"></i></a>
+    </div>
+    <div class="drawer-actions">
+      <button class="theme-toggle"><i class="ph ph-moon"></i> Toggle Theme</button>
+      <button class="rtl-toggle"><i class="ph ph-arrows-left-right"></i> Toggle Direction</button>
+      <a href="booking.html" class="btn btn-primary btn-block">Reserve a Vehicle</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="container">
+        <span class="eyebrow">The Collection</span>
+        <h1>Our Premium Fleet</h1>
+        <p>Nine hand-picked vehicles, each maintained to manufacturer specification and delivered spotless.</p>
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <i class="ph ph-caret-right"></i>
+          <span>Fleet</span>
+        </nav>
+      </div>
+    </header>
+
+    <section class="fleet-catalog">
+      <div class="container">
+
+        <!-- Filters -->
+        <div class="toolbar" data-reveal>
+          <form id="fleet-filter-form">
+            <div class="toolbar-row">
+              <div class="form-group mb-0">
+                <label class="form-label" for="filter-search">Search</label>
+                <div class="input-icon">
+                  <input type="search" class="form-control" id="filter-search" placeholder="Try “Porsche” or “electric”">
+                  <i class="ph ph-magnifying-glass"></i>
+                </div>
+              </div>
+              <div class="form-group mb-0">
+                <label class="form-label" for="filter-category">Category</label>
+                <select class="form-control" id="filter-category">
+                  <option value="">All Categories</option>
+                  <option value="sedan">Luxury Sedan</option>
+                  <option value="suv">SUV</option>
+                  <option value="sports">Sports Car</option>
+                </select>
+              </div>
+              <div class="form-group mb-0">
+                <label class="form-label" for="filter-transmission">Transmission</label>
+                <select class="form-control" id="filter-transmission">
+                  <option value="">All Transmissions</option>
+                  <option value="auto">Automatic</option>
+                  <option value="manual">Manual</option>
+                </select>
+              </div>
+              <div class="form-group mb-0">
+                <label class="form-label" for="filter-seats">Seats</label>
+                <select class="form-control" id="filter-seats">
+                  <option value="">Any Seats</option>
+                  <option value="2">2 Seats</option>
+                  <option value="4">4 Seats</option>
+                  <option value="5">5 Seats</option>
+                  <option value="7">7 Seats</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="toolbar-foot">
+              <div class="chip-row" role="group" aria-label="Fuel type">
+                <button type="button" class="chip active" data-fuel="all"><i class="ph ph-list-dashes"></i> All</button>
+                <button type="button" class="chip" data-fuel="petrol"><i class="ph ph-gas-pump"></i> Petrol</button>
+                <button type="button" class="chip" data-fuel="electric"><i class="ph ph-lightning"></i> Electric</button>
+                <button type="button" class="chip" data-fuel="hybrid"><i class="ph ph-leaf"></i> Hybrid</button>
+              </div>
+
+              <div class="price-filter">
+                <div class="price-filter-head">
+                  <label for="filter-price">Max daily rate</label>
+                  <b id="filter-price-value">$300 / day</b>
+                </div>
+                <input type="range" id="filter-price" min="90" max="300" step="10" value="300">
+              </div>
+
+              <button type="button" class="btn btn-outline btn-sm" data-fleet-reset>
+                <i class="ph ph-arrow-counter-clockwise"></i> Reset
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Result bar -->
+        <div class="result-bar">
+          <p class="result-count" id="result-count" aria-live="polite"><b>9</b> of 9 vehicles available</p>
+
+          <div style="display:flex; align-items:center; gap: var(--spacing-3); flex-wrap: wrap;">
+            <div class="form-group mb-0" style="width: auto;">
+              <label class="sr-only" for="filter-sort">Sort by</label>
+              <select class="form-control" id="filter-sort" style="min-height:40px; padding-block:.4rem;">
+                <option value="name-asc">Sort: Name A–Z</option>
+                <option value="price-asc">Sort: Price, low to high</option>
+                <option value="price-desc">Sort: Price, high to low</option>
+                <option value="rating-desc">Sort: Top rated</option>
+              </select>
+            </div>
+            <div class="chip-row" role="group" aria-label="Layout">
+              <button type="button" class="chip active" data-layout="grid" aria-label="Grid view"><i class="ph ph-squares-four"></i></button>
+              <button type="button" class="chip" data-layout="list" aria-label="List view"><i class="ph ph-rows"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid" id="fleet-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+
+          <article class="vehicle-card fleet-item" data-tilt="5"
+                   data-name="BMW 4 Series Gran Coupe" data-category="sedan" data-transmission="auto"
+                   data-seats="5" data-fuel="petrol" data-price="120" data-rating="4.9">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="BMW 4 Series Gran Coupe" loading="lazy">
+              <span class="badge vehicle-tag">Luxury Sedan</span>
+              <button class="vehicle-fav" type="button" data-fav="bmw-4" aria-label="Save to shortlist"><i class="ph ph-heart"></i></button>
+              <div class="vehicle-price-float">$120<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">BMW</span>
+                <h3 class="vehicle-name">4 Series Gran Coupe</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>4.9</b> · 128 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 5 Seats</div>
+                <div><i class="ph ph-gas-pump"></i> Petrol</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="contact.html" class="btn btn-outline btn-sm">Enquire</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="vehicle-card fleet-item" data-tilt="5"
+                   data-name="Porsche 911 Carrera" data-category="sports" data-transmission="auto"
+                   data-seats="2" data-fuel="petrol" data-price="250" data-rating="5.0">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1503376760367-15637299ee85?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Porsche 911 Carrera" loading="lazy">
+              <span class="badge vehicle-tag is-gold">Most Wanted</span>
+              <button class="vehicle-fav" type="button" data-fav="porsche-911" aria-label="Save to shortlist"><i class="ph ph-heart"></i></button>
+              <div class="vehicle-price-float">$250<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">Porsche</span>
+                <h3 class="vehicle-name">911 Carrera</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>5.0</b> · 84 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 2 Seats</div>
+                <div><i class="ph ph-gas-pump"></i> Petrol</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="contact.html" class="btn btn-outline btn-sm">Enquire</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="vehicle-card fleet-item" data-tilt="5"
+                   data-name="Tesla Model S Plaid" data-category="sedan" data-transmission="auto"
+                   data-seats="5" data-fuel="electric" data-price="180" data-rating="4.8">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Tesla Model S Plaid" loading="lazy">
+              <span class="badge vehicle-tag">Electric</span>
+              <button class="vehicle-fav" type="button" data-fav="tesla-s" aria-label="Save to shortlist"><i class="ph ph-heart"></i></button>
+              <div class="vehicle-price-float">$180<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">Tesla</span>
+                <h3 class="vehicle-name">Model S Plaid</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>4.8</b> · 211 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 5 Seats</div>
+                <div><i class="ph ph-lightning"></i> Electric</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="contact.html" class="btn btn-outline btn-sm">Enquire</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="vehicle-card fleet-item" data-tilt="5"
+                   data-name="Range Rover Velar" data-category="suv" data-transmission="auto"
+                   data-seats="7" data-fuel="hybrid" data-price="200" data-rating="4.7">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Range Rover Velar" loading="lazy">
+              <span class="badge vehicle-tag">Luxury SUV</span>
+              <button class="vehicle-fav" type="button" data-fav="range-rover" aria-label="Save to shortlist"><i class="ph ph-heart"></i></button>
+              <div class="vehicle-price-float">$200<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">Land Rover</span>
+                <h3 class="vehicle-name">Range Rover Velar</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>4.7</b> · 96 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 7 Seats</div>
+                <div><i class="ph ph-leaf"></i> Hybrid</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="contact.html" class="btn btn-outline btn-sm">Enquire</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="vehicle-card fleet-item" data-tilt="5"
+                   data-name="Chevrolet Corvette C8" data-category="sports" data-transmission="manual"
+                   data-seats="2" data-fuel="petrol" data-price="300" data-rating="4.9">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Chevrolet Corvette C8" loading="lazy">
+              <span class="badge vehicle-tag is-gold">Supercar</span>
+              <button class="vehicle-fav" type="button" data-fav="corvette-c8" aria-label="Save to shortlist"><i class="ph ph-heart"></i></button>
+              <div class="vehicle-price-float">$300<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">Chevrolet</span>
+                <h3 class="vehicle-name">Corvette C8</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>4.9</b> · 57 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 2 Seats</div>
+                <div><i class="ph ph-gas-pump"></i> Petrol</div>
+                <div><i class="ph ph-steering-wheel"></i> Manual</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="contact.html" class="btn btn-outline btn-sm">Enquire</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="vehicle-card fleet-item" data-tilt="5"
+                   data-name="Mercedes-Benz G-Class" data-category="suv" data-transmission="auto"
+                   data-seats="5" data-fuel="petrol" data-price="280" data-rating="4.8">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Mercedes-Benz G-Class" loading="lazy">
+              <span class="badge vehicle-tag">Luxury SUV</span>
+              <button class="vehicle-fav" type="button" data-fav="g-class" aria-label="Save to shortlist"><i class="ph ph-heart"></i></button>
+              <div class="vehicle-price-float">$280<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">Mercedes-Benz</span>
+                <h3 class="vehicle-name">G-Class</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>4.8</b> · 73 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 5 Seats</div>
+                <div><i class="ph ph-gas-pump"></i> Petrol</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="contact.html" class="btn btn-outline btn-sm">Enquire</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="vehicle-card fleet-item" data-tilt="5"
+                   data-name="Mercedes-AMG GT Coupe" data-category="sports" data-transmission="auto"
+                   data-seats="2" data-fuel="petrol" data-price="290" data-rating="4.9">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Mercedes-AMG GT Coupe" loading="lazy">
+              <span class="badge vehicle-tag">Grand Tourer</span>
+              <button class="vehicle-fav" type="button" data-fav="amg-gt" aria-label="Save to shortlist"><i class="ph ph-heart"></i></button>
+              <div class="vehicle-price-float">$290<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">Mercedes-AMG</span>
+                <h3 class="vehicle-name">GT Coupe</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>4.9</b> · 41 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 2 Seats</div>
+                <div><i class="ph ph-gas-pump"></i> Petrol</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="contact.html" class="btn btn-outline btn-sm">Enquire</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="vehicle-card fleet-item" data-tilt="5"
+                   data-name="Audi Q7 Quattro" data-category="suv" data-transmission="auto"
+                   data-seats="7" data-fuel="hybrid" data-price="165" data-rating="4.6">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Audi Q7 Quattro" loading="lazy">
+              <span class="badge vehicle-tag">Family SUV</span>
+              <button class="vehicle-fav" type="button" data-fav="audi-q7" aria-label="Save to shortlist"><i class="ph ph-heart"></i></button>
+              <div class="vehicle-price-float">$165<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">Audi</span>
+                <h3 class="vehicle-name">Q7 Quattro</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>4.6</b> · 152 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 7 Seats</div>
+                <div><i class="ph ph-leaf"></i> Hybrid</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="contact.html" class="btn btn-outline btn-sm">Enquire</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="vehicle-card fleet-item" data-tilt="5"
+                   data-name="Lexus ES 350 Hybrid" data-category="sedan" data-transmission="auto"
+                   data-seats="5" data-fuel="hybrid" data-price="95" data-rating="4.7">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Lexus ES 350 Hybrid" loading="lazy">
+              <span class="badge vehicle-tag">Best Value</span>
+              <button class="vehicle-fav" type="button" data-fav="lexus-es" aria-label="Save to shortlist"><i class="ph ph-heart"></i></button>
+              <div class="vehicle-price-float">$95<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">Lexus</span>
+                <h3 class="vehicle-name">ES 350 Hybrid</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>4.7</b> · 188 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 5 Seats</div>
+                <div><i class="ph ph-leaf"></i> Hybrid</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="contact.html" class="btn btn-outline btn-sm">Enquire</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Empty state -->
+        <div class="empty-state" id="fleet-empty" hidden>
+          <i class="ph ph-car-simple"></i>
+          <h3>No vehicles match those filters</h3>
+          <p class="mt-3">Try widening your budget or clearing a filter to see more of the fleet.</p>
+          <button type="button" class="btn btn-outline mt-4" data-fleet-reset>
+            <i class="ph ph-arrow-counter-clockwise"></i> Clear all filters
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="cta-band" data-reveal="scale">
+          <span class="eyebrow" style="color: var(--gold-200);">Can't Decide?</span>
+          <h2>Let our concierge choose for you</h2>
+          <p>Tell us where you're going and we'll match you to the right car — no charge, no obligation.</p>
+          <a href="contact.html" class="btn btn-primary btn-lg">Talk to Concierge <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="logo">RENT EASY</span>
+          <p style="color: rgba(255,255,255,0.62); margin-top: var(--spacing-3); max-width: 280px;">
+            Redefining premium car rentals with an exceptional fleet and unparalleled service.
+          </p>
+          <form class="newsletter">
+            <label class="sr-only" for="nl-email">Email address</label>
+            <input type="email" id="nl-email" placeholder="Join our newsletter" autocomplete="email">
+            <button type="submit" aria-label="Subscribe"><i class="ph ph-paper-plane-tilt"></i></button>
+          </form>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fleet.html">Our Fleet</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="dashboard.html">My Account</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Rental Agreement</a></li>
+            <li><a href="#">Insurance Options</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">Support Centre</a></li>
+            <li><a href="tel:+18005551234"><i class="ph ph-phone"></i> +1 800 555 1234</a></li>
+            <li><a href="mailto:hello@renteasy.com"><i class="ph ph-envelope"></i> hello@renteasy.com</a></li>
+          </ul>
+          <div class="social-links mt-4">
+            <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#" aria-label="X"><i class="ph ph-twitter-logo"></i></a>
+            <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Rent Easy. All rights reserved.</p>
+        <p>Crafted for the drive.</p>
+        <!-- GA_TAG -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/booking.js"></script>
+</body>
+</html>

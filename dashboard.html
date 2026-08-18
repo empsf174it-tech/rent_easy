@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Easy | Dashboard</title>
+  <meta name="description" content="Manage your Rent Easy reservations, invoices and saved vehicles.">
+  <meta name="theme-color" content="#0A0F1C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body>
+
+  <nav class="navbar solid">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">RENT EASY</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="fleet.html" class="nav-link">Fleet</a></li>
+        <li><a href="booking.html" class="nav-link">Book Now</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle desktop-only" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+        <button class="rtl-toggle desktop-only" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+        <a href="login.html" class="btn btn-outline btn-sm desktop-only">Logout</a>
+        <button class="hamburger" aria-label="Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="index.html" class="logo">RENT EASY</a>
+      <button class="close-drawer" aria-label="Close Menu"><i class="ph ph-x"></i></button>
+    </div>
+    <div class="drawer-links">
+      <a href="index.html" class="nav-link">Home <i class="ph ph-arrow-up-right"></i></a>
+      <a href="about.html" class="nav-link">About Us <i class="ph ph-arrow-up-right"></i></a>
+      <a href="fleet.html" class="nav-link">Fleet <i class="ph ph-arrow-up-right"></i></a>
+      <a href="booking.html" class="nav-link">Book Now <i class="ph ph-arrow-up-right"></i></a>
+      <a href="contact.html" class="nav-link">Contact <i class="ph ph-arrow-up-right"></i></a>
+      <a href="dashboard.html" class="nav-link active">Dashboard <i class="ph ph-arrow-up-right"></i></a>
+      <a href="login.html" class="nav-link">Logout <i class="ph ph-arrow-up-right"></i></a>
+    </div>
+    <div class="drawer-actions">
+      <button class="theme-toggle"><i class="ph ph-moon"></i> Toggle Theme</button>
+      <button class="rtl-toggle"><i class="ph ph-arrows-left-right"></i> Toggle Direction</button>
+    </div>
+  </aside>
+
+  <main style="padding-top: calc(var(--nav-h) + var(--spacing-6)); padding-bottom: var(--spacing-12);">
+    <div class="container">
+
+      <!-- Header -->
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom: var(--spacing-6); flex-wrap:wrap; gap: var(--spacing-4);">
+        <div data-reveal="left">
+          <span class="eyebrow">Members Area</span>
+          <h1 style="font-size: var(--fs-h2);">Welcome back, Alex</h1>
+          <p style="color: var(--text-muted);">You have one active rental and two upcoming reservations.</p>
+        </div>
+        <a href="booking.html" class="btn btn-primary" data-reveal="right">
+          <i class="ph ph-plus"></i> New Booking
+        </a>
+      </div>
+
+      <div class="dash-grid">
+
+        <!-- Side nav -->
+        <nav class="dash-nav" data-reveal="left">
+          <ul>
+            <li><a href="#overview" class="active"><i class="ph ph-squares-four"></i> Overview</a></li>
+            <li><a href="#bookings"><i class="ph ph-calendar-check"></i> My Bookings</a></li>
+            <li><a href="#invoices"><i class="ph ph-receipt"></i> Invoices</a></li>
+            <li><a href="#shortlist"><i class="ph ph-heart"></i> Shortlist</a></li>
+            <li><a href="#profile"><i class="ph ph-user-circle"></i> Profile</a></li>
+            <li><a href="login.html"><i class="ph ph-sign-out"></i> Logout</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <!-- Stat cards -->
+          <section id="overview" style="padding: 0;">
+            <div class="grid grid-3" style="gap: var(--spacing-3); margin-bottom: var(--spacing-5);">
+              <div class="stat-card" data-reveal data-reveal-delay="0.05">
+                <span class="icon"><i class="ph ph-car-profile"></i></span>
+                <div>
+                  <strong><span data-count="12">0</span></strong>
+                  <span>Total Rentals</span>
+                </div>
+              </div>
+              <div class="stat-card" data-reveal data-reveal-delay="0.12">
+                <span class="icon"><i class="ph ph-road-horizon"></i></span>
+                <div>
+                  <strong><span data-count="4820">0</span></strong>
+                  <span>Miles Driven</span>
+                </div>
+              </div>
+              <div class="stat-card" data-reveal data-reveal-delay="0.19">
+                <span class="icon"><i class="ph ph-crown-simple"></i></span>
+                <div>
+                  <strong>Gold</strong>
+                  <span>Member Tier</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Active rental -->
+          <section style="padding: 0; margin-bottom: var(--spacing-5);">
+            <article class="vehicle-card" data-reveal style="flex-direction: row;">
+              <div class="vehicle-media" style="flex: 0 0 40%; aspect-ratio: auto; min-height: 220px;">
+                <img src="https://images.unsplash.com/photo-1503376760367-15637299ee85?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Porsche 911 Carrera" loading="lazy">
+                <span class="badge vehicle-tag is-gold">Active Now</span>
+              </div>
+              <div class="vehicle-body" style="justify-content:center;">
+                <div class="vehicle-head">
+                  <span class="vehicle-class">Porsche · Reservation RE-2291</span>
+                  <h3 class="vehicle-name">911 Carrera</h3>
+                </div>
+                <div class="summary-row" style="padding:.3rem 0;"><span>Collected</span><span>28 Jul 2026 · LAX Hub</span></div>
+                <div class="summary-row" style="padding:.3rem 0;"><span>Return due</span><span>02 Aug 2026 · LAX Hub</span></div>
+                <div class="summary-row" style="padding:.3rem 0;"><span>Total</span><span>$1,362</span></div>
+                <div class="vehicle-actions">
+                  <a href="contact.html" class="btn btn-primary btn-sm">Extend Rental</a>
+                  <a href="contact.html" class="btn btn-outline btn-sm">Get Support</a>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <!-- Bookings table -->
+          <section id="bookings" class="panel" style="padding: var(--spacing-4);" data-reveal>
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--spacing-3); flex-wrap:wrap; margin-bottom: var(--spacing-3);">
+              <h3 style="font-size:1.25rem;">Reservation History</h3>
+              <a href="#" class="btn btn-ghost btn-sm">Export CSV <i class="ph ph-download-simple"></i></a>
+            </div>
+
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Reference</th>
+                    <th>Vehicle</th>
+                    <th>Dates</th>
+                    <th>Location</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>RE-2291</strong></td>
+                    <td>Porsche 911 Carrera</td>
+                    <td>28 Jul – 02 Aug 2026</td>
+                    <td>Los Angeles</td>
+                    <td><strong>$1,362</strong></td>
+                    <td><span class="status-pill status-active">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>RE-2314</strong></td>
+                    <td>Range Rover Velar</td>
+                    <td>14 – 19 Aug 2026</td>
+                    <td>Miami</td>
+                    <td><strong>$1,090</strong></td>
+                    <td><span class="status-pill status-pending">Upcoming</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>RE-2340</strong></td>
+                    <td>Tesla Model S Plaid</td>
+                    <td>03 – 06 Sep 2026</td>
+                    <td>New York City</td>
+                    <td><strong>$588</strong></td>
+                    <td><span class="status-pill status-pending">Upcoming</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>RE-2118</strong></td>
+                    <td>BMW 4 Series Gran Coupe</td>
+                    <td>02 – 09 Jun 2026</td>
+                    <td>Chicago</td>
+                    <td><strong>$916</strong></td>
+                    <td><span class="status-pill status-done">Completed</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>RE-1987</strong></td>
+                    <td>Mercedes-Benz G-Class</td>
+                    <td>11 – 15 Apr 2026</td>
+                    <td>Los Angeles</td>
+                    <td><strong>$1,220</strong></td>
+                    <td><span class="status-pill status-done">Completed</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Shortlist -->
+          <section id="shortlist" style="padding: var(--spacing-5) 0 0;">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--spacing-3); flex-wrap:wrap; margin-bottom: var(--spacing-3);">
+              <h3 style="font-size:1.25rem;">Saved Vehicles</h3>
+              <a href="fleet.html" class="btn btn-ghost btn-sm">Browse fleet <i class="ph ph-arrow-right"></i></a>
+            </div>
+
+            <div class="grid grid-3" style="gap: var(--spacing-3);">
+              <article class="vehicle-card" data-reveal data-reveal-delay="0.05">
+                <div class="vehicle-media">
+                  <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Chevrolet Corvette C8" loading="lazy">
+                  <button class="vehicle-fav" type="button" data-fav="corvette-c8" aria-label="Remove from shortlist"><i class="ph ph-heart"></i></button>
+                  <div class="vehicle-price-float">$300<small>/day</small></div>
+                </div>
+                <div class="vehicle-body">
+                  <div class="vehicle-head">
+                    <span class="vehicle-class">Chevrolet</span>
+                    <h3 class="vehicle-name">Corvette C8</h3>
+                  </div>
+                  <div class="vehicle-actions"><a href="booking.html" class="btn btn-outline btn-sm btn-block">Book</a></div>
+                </div>
+              </article>
+
+              <article class="vehicle-card" data-reveal data-reveal-delay="0.12">
+                <div class="vehicle-media">
+                  <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Mercedes-AMG GT Coupe" loading="lazy">
+                  <button class="vehicle-fav" type="button" data-fav="amg-gt" aria-label="Remove from shortlist"><i class="ph ph-heart"></i></button>
+                  <div class="vehicle-price-float">$290<small>/day</small></div>
+                </div>
+                <div class="vehicle-body">
+                  <div class="vehicle-head">
+                    <span class="vehicle-class">Mercedes-AMG</span>
+                    <h3 class="vehicle-name">GT Coupe</h3>
+                  </div>
+                  <div class="vehicle-actions"><a href="booking.html" class="btn btn-outline btn-sm btn-block">Book</a></div>
+                </div>
+              </article>
+
+              <article class="vehicle-card" data-reveal data-reveal-delay="0.19">
+                <div class="vehicle-media">
+                  <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" alt="Lexus ES 350 Hybrid" loading="lazy">
+                  <button class="vehicle-fav" type="button" data-fav="lexus-es" aria-label="Remove from shortlist"><i class="ph ph-heart"></i></button>
+                  <div class="vehicle-price-float">$95<small>/day</small></div>
+                </div>
+                <div class="vehicle-body">
+                  <div class="vehicle-head">
+                    <span class="vehicle-class">Lexus</span>
+                    <h3 class="vehicle-name">ES 350 Hybrid</h3>
+                  </div>
+                  <div class="vehicle-actions"><a href="booking.html" class="btn btn-outline btn-sm btn-block">Book</a></div>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- Profile -->
+          <section id="profile" class="panel mt-5" data-reveal>
+            <h3 style="font-size:1.25rem; margin-bottom: var(--spacing-4);">Profile &amp; Preferences</h3>
+            <form class="validate-form" data-success-message="Profile updated.">
+              <div class="grid grid-2" style="gap: var(--spacing-3);">
+                <div class="form-group">
+                  <label class="form-label" for="p-name">Full Name</label>
+                  <input type="text" class="form-control" id="p-name" name="name" value="Alex Morgan" required>
+                  <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="p-email">Email</label>
+                  <input type="email" class="form-control" id="p-email" name="email" value="alex@example.com" required>
+                  <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="p-phone">Phone</label>
+                  <input type="tel" class="form-control" id="p-phone" name="phone" value="+1 310 555 0142" required>
+                  <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="p-city">Home Hub</label>
+                  <select class="form-control" id="p-city" name="hub">
+                    <option>Los Angeles — Airport Hub</option>
+                    <option>New York City — Main Hub</option>
+                    <option>Miami — Beachfront</option>
+                    <option>Chicago — Downtown</option>
+                  </select>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary">Save Changes</button>
+            </form>
+          </section>
+
+          <!-- Invoices -->
+          <section id="invoices" class="panel mt-5" data-reveal>
+            <h3 style="font-size:1.25rem; margin-bottom: var(--spacing-4);">Invoices</h3>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr><th>Invoice</th><th>Date</th><th>Amount</th><th>Status</th><th></th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>INV-4471</strong></td><td>02 Jun 2026</td><td><strong>$916</strong></td>
+                    <td><span class="status-pill status-active">Paid</span></td>
+                    <td><a href="#" class="text-gold">Download</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>INV-4302</strong></td><td>11 Apr 2026</td><td><strong>$1,220</strong></td>
+                    <td><span class="status-pill status-active">Paid</span></td>
+                    <td><a href="#" class="text-gold">Download</a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>INV-4188</strong></td><td>19 Feb 2026</td><td><strong>$540</strong></td>
+                    <td><span class="status-pill status-active">Paid</span></td>
+                    <td><a href="#" class="text-gold">Download</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="logo">RENT EASY</span>
+          <p style="color: rgba(255,255,255,0.62); margin-top: var(--spacing-3); max-width: 280px;">
+            Redefining premium car rentals with an exceptional fleet and unparalleled service.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fleet.html">Our Fleet</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="dashboard.html">My Account</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Rental Agreement</a></li>
+            <li><a href="#">Insurance Options</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">Support Centre</a></li>
+            <li><a href="tel:+18005551234"><i class="ph ph-phone"></i> +1 800 555 1234</a></li>
+            <li><a href="mailto:hello@renteasy.com"><i class="ph ph-envelope"></i> hello@renteasy.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Rent Easy. All rights reserved.</p>
+        <p>Crafted for the drive.</p>
+        <!-- GA_TAG -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

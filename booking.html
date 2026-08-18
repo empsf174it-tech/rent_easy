@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Easy | Book Your Vehicle</title>
+  <meta name="description" content="Reserve a premium vehicle in three steps — pick your car, set your dates, and confirm with a transparent, all-inclusive price.">
+  <meta name="theme-color" content="#0A0F1C">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+</head>
+<body class="nav-on-dark">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">RENT EASY</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="fleet.html" class="nav-link">Fleet</a></li>
+        <li><a href="booking.html" class="nav-link active">Book Now</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle desktop-only" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+        <button class="rtl-toggle desktop-only" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
+        <a href="login.html" class="btn btn-outline btn-sm desktop-only">Login</a>
+        <button class="hamburger" aria-label="Menu"><i class="ph ph-list"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="index.html" class="logo">RENT EASY</a>
+      <button class="close-drawer" aria-label="Close Menu"><i class="ph ph-x"></i></button>
+    </div>
+    <div class="drawer-links">
+      <a href="index.html" class="nav-link">Home <i class="ph ph-arrow-up-right"></i></a>
+      <a href="about.html" class="nav-link">About Us <i class="ph ph-arrow-up-right"></i></a>
+      <a href="fleet.html" class="nav-link">Fleet <i class="ph ph-arrow-up-right"></i></a>
+      <a href="booking.html" class="nav-link active">Book Now <i class="ph ph-arrow-up-right"></i></a>
+      <a href="contact.html" class="nav-link">Contact <i class="ph ph-arrow-up-right"></i></a>
+      <a href="dashboard.html" class="nav-link">Dashboard <i class="ph ph-arrow-up-right"></i></a>
+      <a href="login.html" class="nav-link">Login <i class="ph ph-arrow-up-right"></i></a>
+    </div>
+    <div class="drawer-actions">
+      <button class="theme-toggle"><i class="ph ph-moon"></i> Toggle Theme</button>
+      <button class="rtl-toggle"><i class="ph ph-arrows-left-right"></i> Toggle Direction</button>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="container">
+        <span class="eyebrow">Reservation</span>
+        <h1>Complete Your Booking</h1>
+        <p>Three short steps. Your price updates live as you go — no hidden fees at the end.</p>
+      </div>
+    </header>
+
+    <section>
+      <div class="container">
+        <div class="grid booking-layout" style="grid-template-columns: 1.7fr 1fr; align-items: start;">
+
+          <!-- Form -->
+          <div class="panel booking-panel-top">
+
+            <!-- Step indicator -->
+            <div class="wizard-steps">
+              <div class="wizard-step is-active">
+                <span class="wizard-dot">1</span>
+                <span class="wizard-step-label">Vehicle</span>
+                <span class="wizard-line"></span>
+              </div>
+              <div class="wizard-step">
+                <span class="wizard-dot">2</span>
+                <span class="wizard-step-label">Rental Details</span>
+                <span class="wizard-line"></span>
+              </div>
+              <div class="wizard-step">
+                <span class="wizard-dot">3</span>
+                <span class="wizard-step-label">Confirm</span>
+                <span class="wizard-line"></span>
+              </div>
+            </div>
+
+            <form id="booking-form" class="validate-form"
+                  data-success-message="Booking confirmed — a confirmation email is on its way.">
+
+              <!-- Step 1 -->
+              <div class="wizard-panel is-active" data-step="1">
+                <h2 class="form-section-title"><i class="ph ph-car-profile"></i> Choose your vehicle</h2>
+
+                <div class="picker-grid mb-0">
+                  <button type="button" class="picker-tile" data-value="lexus-es">
+                    <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <div class="picker-tile-body">
+                      <strong>Lexus ES 350</strong>
+                      <span><b>$95</b> / day · Hybrid</span>
+                    </div>
+                  </button>
+                  <button type="button" class="picker-tile" data-value="bmw-4">
+                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <div class="picker-tile-body">
+                      <strong>BMW 4 Series</strong>
+                      <span><b>$120</b> / day · Sedan</span>
+                    </div>
+                  </button>
+                  <button type="button" class="picker-tile" data-value="tesla-s">
+                    <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <div class="picker-tile-body">
+                      <strong>Tesla Model S</strong>
+                      <span><b>$180</b> / day · Electric</span>
+                    </div>
+                  </button>
+                  <button type="button" class="picker-tile" data-value="range-rover">
+                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <div class="picker-tile-body">
+                      <strong>Range Rover Velar</strong>
+                      <span><b>$200</b> / day · SUV</span>
+                    </div>
+                  </button>
+                  <button type="button" class="picker-tile" data-value="porsche-911">
+                    <img src="https://images.unsplash.com/photo-1503376760367-15637299ee85?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <div class="picker-tile-body">
+                      <strong>Porsche 911</strong>
+                      <span><b>$250</b> / day · Sports</span>
+                    </div>
+                  </button>
+                  <button type="button" class="picker-tile" data-value="corvette-c8">
+                    <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <div class="picker-tile-body">
+                      <strong>Corvette C8</strong>
+                      <span><b>$300</b> / day · Supercar</span>
+                    </div>
+                  </button>
+                </div>
+
+                <div class="form-group mt-4">
+                  <label class="form-label" for="vehicle">Or select from the full list *</label>
+                  <select class="form-control" id="vehicle" name="vehicle" required>
+                    <option value="">Select your premium ride…</option>
+                    <option value="lexus-es"     data-price="95"  data-label="Lexus ES 350 Hybrid">Lexus ES 350 Hybrid ($95/day)</option>
+                    <option value="bmw-4"        data-price="120" data-label="BMW 4 Series Gran Coupe">BMW 4 Series Gran Coupe ($120/day)</option>
+                    <option value="audi-q7"      data-price="165" data-label="Audi Q7 Quattro">Audi Q7 Quattro ($165/day)</option>
+                    <option value="tesla-s"      data-price="180" data-label="Tesla Model S Plaid">Tesla Model S Plaid ($180/day)</option>
+                    <option value="range-rover"  data-price="200" data-label="Range Rover Velar">Range Rover Velar ($200/day)</option>
+                    <option value="porsche-911"  data-price="250" data-label="Porsche 911 Carrera">Porsche 911 Carrera ($250/day)</option>
+                    <option value="g-class"      data-price="280" data-label="Mercedes-Benz G-Class">Mercedes-Benz G-Class ($280/day)</option>
+                    <option value="amg-gt"       data-price="290" data-label="Mercedes-AMG GT Coupe">Mercedes-AMG GT Coupe ($290/day)</option>
+                    <option value="corvette-c8"  data-price="300" data-label="Chevrolet Corvette C8">Chevrolet Corvette C8 ($300/day)</option>
+                  </select>
+                  <span class="error-msg"></span>
+                </div>
+
+                <div class="wizard-nav">
+                  <span></span>
+                  <button type="button" class="btn btn-primary" data-wizard-next>
+                    Continue <i class="ph ph-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 2 -->
+              <div class="wizard-panel" data-step="2">
+                <h2 class="form-section-title"><i class="ph ph-calendar-check"></i> Rental details</h2>
+
+                <div class="grid grid-2" style="gap: var(--spacing-3);">
+                  <div class="form-group">
+                    <label class="form-label" for="pickup-location">Pick-up Location *</label>
+                    <select class="form-control" id="pickup-location" name="pickup_location" required>
+                      <option value="">Select location…</option>
+                      <option value="nyc">New York City — Main Hub</option>
+                      <option value="lax">Los Angeles — Airport Hub</option>
+                      <option value="mia">Miami — Beachfront</option>
+                      <option value="chi">Chicago — Downtown</option>
+                    </select>
+                    <span class="error-msg"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="dropoff-location">Drop-off Location *</label>
+                    <select class="form-control" id="dropoff-location" name="dropoff_location" required>
+                      <option value="">Select location…</option>
+                      <option value="nyc">New York City — Main Hub</option>
+                      <option value="lax">Los Angeles — Airport Hub</option>
+                      <option value="mia">Miami — Beachfront</option>
+                      <option value="chi">Chicago — Downtown</option>
+                    </select>
+                    <span class="error-msg"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="pickup-date">Pick-up Date *</label>
+                    <input type="date" class="form-control" id="pickup-date" name="pickup_date" required>
+                    <span class="error-msg"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="dropoff-date">Drop-off Date *</label>
+                    <input type="date" class="form-control" id="dropoff-date" name="dropoff_date" required>
+                    <span class="error-msg"></span>
+                  </div>
+                </div>
+
+                <h3 class="form-section-title mt-5"><i class="ph ph-sparkle"></i> Add-ons</h3>
+
+                <label class="extra-row">
+                  <input type="checkbox" name="extra_insurance" data-price="18">
+                  <span class="extra-info">
+                    <strong>Zero-excess insurance</strong>
+                    <span>Drive away from any incident with nothing to pay.</span>
+                  </span>
+                  <span class="extra-price">+$18/day</span>
+                </label>
+
+                <label class="extra-row">
+                  <input type="checkbox" name="extra_driver" data-price="12">
+                  <span class="extra-info">
+                    <strong>Additional driver</strong>
+                    <span>Share the wheel with a second fully covered driver.</span>
+                  </span>
+                  <span class="extra-price">+$12/day</span>
+                </label>
+
+                <label class="extra-row">
+                  <input type="checkbox" name="extra_delivery" data-price="25">
+                  <span class="extra-info">
+                    <strong>Door-to-door delivery</strong>
+                    <span>We bring the car to you and collect it when you're done.</span>
+                  </span>
+                  <span class="extra-price">+$25/day</span>
+                </label>
+
+                <label class="extra-row">
+                  <input type="checkbox" name="extra_child_seat" data-price="8">
+                  <span class="extra-info">
+                    <strong>Child seat</strong>
+                    <span>Fitted and safety-checked before handover.</span>
+                  </span>
+                  <span class="extra-price">+$8/day</span>
+                </label>
+
+                <div class="wizard-nav">
+                  <button type="button" class="btn btn-outline" data-wizard-prev>
+                    <i class="ph ph-arrow-left"></i> Back
+                  </button>
+                  <button type="button" class="btn btn-primary" data-wizard-next>
+                    Continue <i class="ph ph-arrow-right"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Step 3 -->
+              <div class="wizard-panel" data-step="3">
+                <h2 class="form-section-title"><i class="ph ph-user-circle"></i> Driver details</h2>
+
+                <div class="grid grid-2" style="gap: var(--spacing-3);">
+                  <div class="form-group">
+                    <label class="form-label" for="firstname">First Name *</label>
+                    <input type="text" class="form-control" id="firstname" name="firstname" autocomplete="given-name" required>
+                    <span class="error-msg"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="lastname">Last Name *</label>
+                    <input type="text" class="form-control" id="lastname" name="lastname" autocomplete="family-name" required>
+                    <span class="error-msg"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="email">Email Address *</label>
+                    <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
+                    <span class="error-msg"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number *</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" autocomplete="tel" required>
+                    <span class="error-msg"></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="notes">Anything we should know?</label>
+                  <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Flight number, preferred handover time, accessibility needs…"></textarea>
+                </div>
+
+                <!-- Payment Placeholder -->
+                <div style="background-color: var(--bg-alt); padding: var(--spacing-4); border-radius: var(--radius); margin-top: var(--spacing-4); text-align: center; border: 1px dashed var(--border-strong);">
+                  <i class="ph ph-credit-card" style="font-size: 2rem; color: var(--accent);"></i>
+                  <p style="color: var(--text-muted); font-size: var(--fs-small); margin-top: var(--spacing-2);">
+                    Stripe / PayPal payment integration placeholder — nothing is charged in this demo.
+                  </p>
+                </div>
+
+                <div class="form-group mt-4">
+                  <label class="checkbox-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <span>I agree to the <a href="#" class="text-gold">Terms &amp; Conditions</a> and the <a href="#" class="text-gold">Rental Agreement</a>, and confirm I hold a valid driving licence.</span>
+                  </label>
+                  <span class="error-msg"></span>
+                </div>
+
+                <div class="wizard-nav">
+                  <button type="button" class="btn btn-outline" data-wizard-prev>
+                    <i class="ph ph-arrow-left"></i> Back
+                  </button>
+                  <button type="submit" class="btn btn-primary btn-lg">
+                    <i class="ph ph-lock-simple"></i> Confirm Booking
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Live summary -->
+          <aside class="summary-card" aria-live="polite">
+            <span class="eyebrow">Your Reservation</span>
+            <h3 style="margin-bottom: var(--spacing-3);">Price Summary</h3>
+
+            <div class="summary-row"><span>Vehicle</span><span id="sum-vehicle">—</span></div>
+            <div class="summary-row"><span>Daily rate</span><span id="sum-rate">—</span></div>
+            <div class="summary-row"><span>Dates</span><span id="sum-dates">Select dates</span></div>
+            <div class="summary-row"><span>Duration</span><span id="sum-days">—</span></div>
+            <div class="summary-row"><span>Add-ons</span><span id="sum-extras">—</span></div>
+
+            <hr class="rule mt-3">
+
+            <div class="summary-row"><span>Subtotal</span><span id="sum-subtotal">$0</span></div>
+            <div class="summary-row"><span>Taxes &amp; fees (9%)</span><span id="sum-taxes">$0</span></div>
+
+            <div class="summary-total">
+              <span>Total</span>
+              <strong id="sum-total">$0</strong>
+            </div>
+
+            <p class="summary-note">
+              <i class="ph-fill ph-shield-check"></i>
+              Insurance, unlimited mileage and 24/7 roadside assistance are included in every rate.
+            </p>
+            <p class="summary-note">
+              <i class="ph-fill ph-calendar-x"></i>
+              Free cancellation up to 48 hours before pick-up.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="logo">RENT EASY</span>
+          <p style="color: rgba(255,255,255,0.62); margin-top: var(--spacing-3); max-width: 280px;">
+            Redefining premium car rentals with an exceptional fleet and unparalleled service.
+          </p>
+          <form class="newsletter">
+            <label class="sr-only" for="nl-email">Email address</label>
+            <input type="email" id="nl-email" placeholder="Join our newsletter" autocomplete="email">
+            <button type="submit" aria-label="Subscribe"><i class="ph ph-paper-plane-tilt"></i></button>
+          </form>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fleet.html">Our Fleet</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="dashboard.html">My Account</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Rental Agreement</a></li>
+            <li><a href="#">Insurance Options</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">Support Centre</a></li>
+            <li><a href="tel:+18005551234"><i class="ph ph-phone"></i> +1 800 555 1234</a></li>
+            <li><a href="mailto:hello@renteasy.com"><i class="ph ph-envelope"></i> hello@renteasy.com</a></li>
+          </ul>
+          <div class="social-links mt-4">
+            <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#" aria-label="X"><i class="ph ph-twitter-logo"></i></a>
+            <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Rent Easy. All rights reserved.</p>
+        <p>Crafted for the drive.</p>
+        <!-- GA_TAG -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/booking.js"></script>
+</body>
+</html>

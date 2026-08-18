@@ -1,0 +1,56 @@
+/*
+  RTL overrides for Rent Easy.
+  The main sheet uses logical properties (inset-inline-*, padding-inline-*,
+  margin-inline, text-align: start/end) wherever possible, so this file only
+  patches the handful of places that still need physical direction awareness.
+*/
+
+[dir="rtl"] {
+  /* Swap in an Arabic/Hebrew display face here when localising */
+  --font-heading: 'Playfair Display', serif;
+  text-align: right;
+}
+
+[dir="rtl"] .text-center,
+[dir="rtl"] .page-header,
+[dir="rtl"] .cta-band,
+[dir="rtl"] .testimonial-card,
+[dir="rtl"] .process-step,
+[dir="rtl"] .stat,
+[dir="rtl"] .empty-state {
+  text-align: center;
+}
+
+[dir="rtl"] .nav-links,
+[dir="rtl"] .nav-actions,
+[dir="rtl"] .card-meta,
+[dir="rtl"] .hero-cta,
+[dir="rtl"] .hero-trust {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .drawer-header { flex-direction: row-reverse; }
+
+[dir="rtl"] .drawer-links .nav-link { transform: translateX(-24px); }
+[dir="rtl"] .mobile-drawer.open .drawer-links .nav-link { animation-name: drawerInRtl; }
+
+@keyframes drawerInRtl { to { opacity: 1; transform: translateX(0); } }
+
+[dir="rtl"] .btn { flex-direction: row-reverse; }
+[dir="rtl"] .btn:hover i.ph-arrow-right { transform: translateX(-4px) rotate(180deg); }
+[dir="rtl"] .btn i.ph-arrow-right { transform: rotate(180deg); }
+
+[dir="rtl"] .form-group { text-align: right; }
+[dir="rtl"] .checkbox-group { flex-direction: row-reverse; justify-content: flex-end; }
+
+[dir="rtl"] .marquee-track { animation-direction: reverse; }
+
+[dir="rtl"] .stat + .stat::before { inset-inline-start: auto; inset-inline-end: 0; }
+
+[dir="rtl"] .hero::after { inset-inline-end: auto; inset-inline-start: -12%; }
+
+[dir="rtl"] .breadcrumb i,
+[dir="rtl"] .carousel-btn i { transform: rotate(180deg); }
+
+[dir="rtl"] .data-table th,
+[dir="rtl"] .data-table td { text-align: right; }

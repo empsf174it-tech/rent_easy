@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rent Easy | Premium Car Rental</title>
+  <meta name="description" content="Premium car rental service offering luxury, comfort, and performance vehicles for any occasion.">
+  <meta name="theme-color" content="#0A0F1C">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+
+  <!-- JSON-LD for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRental",
+    "name": "Rent Easy",
+    "description": "Premium car rental service.",
+    "url": "https://renteasy.example.com",
+    "telephone": "+1-800-555-1234"
+  }
+  </script>
+</head>
+<body class="nav-on-dark">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">RENT EASY</a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+        <li><a href="fleet.html" class="nav-link">Fleet</a></li>
+        <li><a href="booking.html" class="nav-link">Book Now</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle desktop-only" aria-label="Toggle Dark Mode">
+          <i class="ph ph-moon"></i>
+        </button>
+        <button class="rtl-toggle desktop-only" aria-label="Toggle RTL">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+        <a href="login.html" class="btn btn-outline btn-sm desktop-only">Login</a>
+        <button class="hamburger" aria-label="Menu">
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay"></div>
+  <aside class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <a href="index.html" class="logo">RENT EASY</a>
+      <button class="close-drawer" aria-label="Close Menu">
+        <i class="ph ph-x"></i>
+      </button>
+    </div>
+
+    <div class="drawer-links">
+      <a href="index.html" class="nav-link active">Home <i class="ph ph-arrow-up-right"></i></a>
+      <a href="about.html" class="nav-link">About Us <i class="ph ph-arrow-up-right"></i></a>
+      <a href="fleet.html" class="nav-link">Fleet <i class="ph ph-arrow-up-right"></i></a>
+      <a href="booking.html" class="nav-link">Book Now <i class="ph ph-arrow-up-right"></i></a>
+      <a href="contact.html" class="nav-link">Contact <i class="ph ph-arrow-up-right"></i></a>
+      <a href="dashboard.html" class="nav-link">Dashboard <i class="ph ph-arrow-up-right"></i></a>
+      <a href="login.html" class="nav-link">Login <i class="ph ph-arrow-up-right"></i></a>
+    </div>
+
+    <div class="drawer-actions">
+      <button class="theme-toggle">
+        <i class="ph ph-moon"></i> Toggle Theme
+      </button>
+      <button class="rtl-toggle">
+        <i class="ph ph-arrows-left-right"></i> Toggle Direction
+      </button>
+      <a href="booking.html" class="btn btn-primary btn-block">Reserve a Vehicle</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+             alt="" aria-hidden="true" fetchpriority="high">
+      </div>
+
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-subtitle">Premium Car Rental</span>
+          <h1 class="hero-title reveal-words">Experience the open road in <em>absolute luxury</em></h1>
+          <p class="hero-desc">
+            A curated collection of the world's most desirable vehicles, delivered
+            spotless and ready — wherever your journey begins.
+          </p>
+          <div class="hero-cta">
+            <a href="booking.html" class="btn btn-primary btn-lg">Reserve Your Car <i class="ph ph-arrow-right"></i></a>
+            <a href="fleet.html" class="btn btn-outline btn-lg">Explore the Fleet</a>
+          </div>
+
+          <div class="hero-trust">
+            <div class="hero-trust-item">
+              <strong>120+</strong>
+              <span>Vehicles</span>
+            </div>
+            <div class="hero-trust-item">
+              <strong>24 hrs</strong>
+              <span>Concierge</span>
+            </div>
+            <div class="hero-trust-item">
+              <strong>4.9★</strong>
+              <span>Guest Rating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="scroll-cue-line"></span>
+      </div>
+    </section>
+
+    <!-- Quick availability search -->
+    <div class="container quick-search">
+      <form class="quick-search-inner" action="booking.html" data-reveal="scale">
+        <div class="form-group">
+          <label class="form-label" for="qs-location">Pick-up Location</label>
+          <div class="input-icon">
+            <select class="form-control" id="qs-location" name="location">
+              <option>New York City — Main Hub</option>
+              <option>Los Angeles — Airport Hub</option>
+              <option>Miami — Beachfront</option>
+              <option>Chicago — Downtown</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="qs-pickup">Pick-up Date</label>
+          <input type="date" class="form-control" id="qs-pickup" name="pickup">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="qs-return">Return Date</label>
+          <input type="date" class="form-control" id="qs-return" name="return">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="qs-class">Vehicle Class</label>
+          <select class="form-control" id="qs-class" name="class">
+            <option>Any Class</option>
+            <option>Luxury Sedan</option>
+            <option>Sports</option>
+            <option>SUV</option>
+            <option>Electric</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <i class="ph ph-magnifying-glass"></i> Search
+        </button>
+      </form>
+    </div>
+
+    <!-- Brand marquee -->
+    <div class="marquee" aria-label="Brands in our fleet">
+      <div class="marquee-track">
+        <span class="marquee-item">Porsche</span>
+        <span class="marquee-item">Mercedes-Benz</span>
+        <span class="marquee-item">BMW</span>
+        <span class="marquee-item">Tesla</span>
+        <span class="marquee-item">Range Rover</span>
+        <span class="marquee-item">Audi</span>
+        <span class="marquee-item">Lexus</span>
+      </div>
+    </div>
+
+    <!-- How It Works -->
+    <section class="process">
+      <div class="container text-center">
+        <div class="section-heading text-center" data-reveal>
+          <span class="eyebrow">The Process</span>
+          <h2>Three steps to the driver's seat</h2>
+          <p>Renting a premium vehicle has never been this seamless — no queues, no paperwork, no surprises.</p>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step" data-reveal data-reveal-delay="0.05">
+            <div class="step-orb" data-step="1"><i class="ph ph-car-profile"></i></div>
+            <h3>Select Vehicle</h3>
+            <p>Browse a hand-picked fleet and filter by class, transmission, or budget.</p>
+          </div>
+          <div class="process-step" data-reveal data-reveal-delay="0.15">
+            <div class="step-orb" data-step="2"><i class="ph ph-calendar-check"></i></div>
+            <h3>Book Your Dates</h3>
+            <p>Choose pick-up and drop-off points, then confirm with instant availability.</p>
+          </div>
+          <div class="process-step" data-reveal data-reveal-delay="0.25">
+            <div class="step-orb" data-step="3"><i class="ph ph-key"></i></div>
+            <h3>Drive Away</h3>
+            <p>Collect your keys — or have the car delivered to your door, detailed and fuelled.</p>
+          </div>
+        </div>
+
+        <div class="stat-strip mt-8" data-reveal>
+          <div class="stat">
+            <span class="stat-num"><span data-count="120">0</span><span class="suffix">+</span></span>
+            <span class="stat-label">Vehicles in Fleet</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num"><span data-count="34">0</span><span class="suffix">k</span></span>
+            <span class="stat-label">Journeys Completed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num"><span data-count="18">0</span></span>
+            <span class="stat-label">City Locations</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num"><span data-count="4.9">0</span><span class="suffix">★</span></span>
+            <span class="stat-label">Average Rating</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Fleet -->
+    <section class="featured-fleet surface-alt">
+      <div class="container">
+        <div class="section-heading text-center" data-reveal>
+          <span class="eyebrow">The Collection</span>
+          <h2>Our featured fleet</h2>
+          <p>Explore our most requested models, blending performance with impeccable style.</p>
+        </div>
+
+        <div class="grid grid-3">
+          <!-- Car 1 -->
+          <article class="vehicle-card" data-tilt="6" data-reveal data-reveal-delay="0.05">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80"
+                   alt="BMW 4 Series Gran Coupe" loading="lazy">
+              <span class="badge vehicle-tag">Luxury Sedan</span>
+              <button class="vehicle-fav" type="button" data-fav="bmw-4" aria-label="Save BMW 4 Series to shortlist">
+                <i class="ph ph-heart"></i>
+              </button>
+              <div class="vehicle-price-float">$120<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">BMW</span>
+                <h3 class="vehicle-name">4 Series Gran Coupe</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>4.9</b> · 128 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 5 Seats</div>
+                <div><i class="ph ph-gas-pump"></i> Petrol</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="fleet.html" class="btn btn-outline btn-sm">Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 2 -->
+          <article class="vehicle-card" data-tilt="6" data-reveal data-reveal-delay="0.15">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1503376760367-15637299ee85?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80"
+                   alt="Porsche 911 Carrera" loading="lazy">
+              <span class="badge vehicle-tag is-gold">Most Wanted</span>
+              <button class="vehicle-fav" type="button" data-fav="porsche-911" aria-label="Save Porsche 911 to shortlist">
+                <i class="ph ph-heart"></i>
+              </button>
+              <div class="vehicle-price-float">$250<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">Porsche</span>
+                <h3 class="vehicle-name">911 Carrera</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>5.0</b> · 84 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 2 Seats</div>
+                <div><i class="ph ph-gas-pump"></i> Petrol</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="fleet.html" class="btn btn-outline btn-sm">Details</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 3 -->
+          <article class="vehicle-card" data-tilt="6" data-reveal data-reveal-delay="0.25">
+            <div class="vehicle-media">
+              <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80"
+                   alt="Tesla Model S Plaid" loading="lazy">
+              <span class="badge vehicle-tag">Electric</span>
+              <button class="vehicle-fav" type="button" data-fav="tesla-s" aria-label="Save Tesla Model S to shortlist">
+                <i class="ph ph-heart"></i>
+              </button>
+              <div class="vehicle-price-float">$180<small>/day</small></div>
+            </div>
+            <div class="vehicle-body">
+              <div class="vehicle-head">
+                <span class="vehicle-class">Tesla</span>
+                <h3 class="vehicle-name">Model S Plaid</h3>
+              </div>
+              <span class="vehicle-rating"><i class="ph-fill ph-star"></i> <b>4.8</b> · 211 trips</span>
+              <div class="vehicle-specs">
+                <div><i class="ph ph-users"></i> 5 Seats</div>
+                <div><i class="ph ph-lightning"></i> Electric</div>
+                <div><i class="ph ph-steering-wheel"></i> Auto</div>
+              </div>
+              <div class="vehicle-actions">
+                <a href="booking.html" class="btn btn-primary btn-sm">Rent Now</a>
+                <a href="fleet.html" class="btn btn-outline btn-sm">Details</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="text-center mt-8" data-reveal>
+          <a href="fleet.html" class="btn btn-ink btn-lg">View Entire Fleet <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why us -->
+    <section>
+      <div class="container">
+        <div class="split">
+          <div data-reveal="left">
+            <span class="eyebrow">Why Rent Easy</span>
+            <h2>Service that matches the machine</h2>
+            <p style="color: var(--text-muted); margin-top: var(--spacing-3);">
+              Anyone can hand over a set of keys. We obsess over everything either side of that
+              moment — so the only thing you have to think about is the drive.
+            </p>
+
+            <ul class="check-list">
+              <li>
+                <i class="ph-fill ph-check-circle"></i>
+                <div><strong>Free door-to-door delivery</strong>Your vehicle arrives detailed, fuelled and on time, anywhere in the city.</div>
+              </li>
+              <li>
+                <i class="ph-fill ph-check-circle"></i>
+                <div><strong>Transparent pricing</strong>One rate, all-inclusive. No mileage traps, no fuel penalties, no hidden fees.</div>
+              </li>
+              <li>
+                <i class="ph-fill ph-check-circle"></i>
+                <div><strong>Full insurance included</strong>Comprehensive cover and 24/7 roadside assistance on every rental.</div>
+              </li>
+            </ul>
+
+            <a href="about.html" class="btn btn-outline mt-5">Our Story <i class="ph ph-arrow-right"></i></a>
+          </div>
+
+          <div class="split-media" data-reveal="right">
+            <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                 alt="Luxury car on a coastal road at sunset" loading="lazy">
+            <div class="float-card">
+              <i class="ph-fill ph-seal-check"></i>
+              <div>
+                <strong>Zero-deposit rentals</strong>
+                <span>On all verified accounts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-heading text-center" data-reveal>
+          <span class="eyebrow">Guest Stories</span>
+          <h2>What our clients say</h2>
+        </div>
+
+        <div class="carousel" data-carousel="7000">
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <div class="carousel-slide">
+                <figure class="testimonial-card">
+                  <i class="ph-fill ph-quotes quote-mark"></i>
+                  <div class="testimonial-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+                  <blockquote>
+                    The seamless booking process and the immaculate condition of the Porsche 911
+                    made our weekend trip absolutely perfect.
+                  </blockquote>
+                  <figcaption class="testimonial-author">
+                    <img class="author-avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80" alt="" loading="lazy">
+                    <div>
+                      <h4>Michael D.</h4>
+                      <span>Business Executive</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <div class="carousel-slide">
+                <figure class="testimonial-card">
+                  <i class="ph-fill ph-quotes quote-mark"></i>
+                  <div class="testimonial-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+                  <blockquote>
+                    Rent Easy completely redefined my expectations. A high-end fleet, transparent
+                    pricing, and support that actually picks up the phone.
+                  </blockquote>
+                  <figcaption class="testimonial-author">
+                    <img class="author-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80" alt="" loading="lazy">
+                    <div>
+                      <h4>Sarah Jenkins</h4>
+                      <span>Frequent Traveller</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+
+              <div class="carousel-slide">
+                <figure class="testimonial-card">
+                  <i class="ph-fill ph-quotes quote-mark"></i>
+                  <div class="testimonial-stars" aria-label="Rated 5 out of 5">★★★★★</div>
+                  <blockquote>
+                    They delivered the Range Rover to my hotel at 6am without a single reminder.
+                    That is the whole service in one sentence.
+                  </blockquote>
+                  <figcaption class="testimonial-author">
+                    <img class="author-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=120&q=80" alt="" loading="lazy">
+                    <div>
+                      <h4>Aditya R.</h4>
+                      <span>Film Producer</span>
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-controls">
+            <button class="carousel-btn" type="button" data-carousel-prev aria-label="Previous testimonial">
+              <i class="ph ph-arrow-left"></i>
+            </button>
+            <div class="carousel-dots"></div>
+            <button class="carousel-btn" type="button" data-carousel-next aria-label="Next testimonial">
+              <i class="ph ph-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <div class="container">
+        <div class="section-heading text-center" data-reveal>
+          <span class="eyebrow">Good to Know</span>
+          <h2>Frequently asked questions</h2>
+        </div>
+
+        <div class="accordion" data-reveal>
+          <div class="accordion-item">
+            <button class="accordion-trigger" type="button">
+              What do I need to rent a vehicle?
+              <span class="accordion-icon"><i class="ph ph-plus"></i></span>
+            </button>
+            <div class="accordion-panel">
+              <div class="accordion-panel-inner">
+                A valid driving licence held for at least two years, a government-issued photo ID,
+                and a credit card in the main driver's name. Drivers must be 23 or older for
+                standard classes, and 28 or older for our performance range.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" type="button">
+              Is insurance included in the price?
+              <span class="accordion-icon"><i class="ph ph-plus"></i></span>
+            </button>
+            <div class="accordion-panel">
+              <div class="accordion-panel-inner">
+                Yes. Every rental includes comprehensive cover, theft protection and 24/7 roadside
+                assistance. Optional zero-excess cover can be added at checkout for $18 per day.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" type="button">
+              Can I change or cancel my booking?
+              <span class="accordion-icon"><i class="ph ph-plus"></i></span>
+            </button>
+            <div class="accordion-panel">
+              <div class="accordion-panel-inner">
+                Free changes and full refunds are available up to 48 hours before pick-up.
+                Within 48 hours we credit the full amount against a future rental.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" type="button">
+              Do you deliver the car to me?
+              <span class="accordion-icon"><i class="ph ph-plus"></i></span>
+            </button>
+            <div class="accordion-panel">
+              <div class="accordion-panel-inner">
+                Complimentary delivery and collection is offered within 25 miles of any of our
+                18 city hubs. Airport handovers are met kerbside by a member of our concierge team.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-tight">
+      <div class="container">
+        <div class="cta-band" data-reveal="scale">
+          <span class="eyebrow" style="color: var(--gold-200);">Ready When You Are</span>
+          <h2>Your next drive is one click away</h2>
+          <p>Reserve in under two minutes. Free cancellation up to 48 hours before pick-up.</p>
+          <a href="booking.html" class="btn btn-primary btn-lg">Book Your Vehicle <i class="ph ph-arrow-right"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <span class="logo">RENT EASY</span>
+          <p style="color: rgba(255,255,255,0.62); margin-top: var(--spacing-3); max-width: 280px;">
+            Redefining premium car rentals with an exceptional fleet and unparalleled service.
+          </p>
+          <form class="newsletter">
+            <label class="sr-only" for="nl-email">Email address</label>
+            <input type="email" id="nl-email" placeholder="Join our newsletter" autocomplete="email">
+            <button type="submit" aria-label="Subscribe"><i class="ph ph-paper-plane-tilt"></i></button>
+          </form>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="fleet.html">Our Fleet</a></li>
+            <li><a href="booking.html">Book Now</a></li>
+            <li><a href="dashboard.html">My Account</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Rental Agreement</a></li>
+            <li><a href="#">Insurance Options</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">Support Centre</a></li>
+            <li><a href="tel:+18005551234"><i class="ph ph-phone"></i> +1 800 555 1234</a></li>
+            <li><a href="mailto:hello@renteasy.com"><i class="ph ph-envelope"></i> hello@renteasy.com</a></li>
+          </ul>
+          <div class="social-links mt-4">
+            <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+            <a href="#" aria-label="X"><i class="ph ph-twitter-logo"></i></a>
+            <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Rent Easy. All rights reserved.</p>
+        <p>Crafted for the drive.</p>
+        <!-- GA_TAG -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
