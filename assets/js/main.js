@@ -579,16 +579,33 @@
    * Auth tabs (login / register)
    * ------------------------------------------------------------------ */
   function initAuthTabs() {
-    const tabs = $$('[data-auth-tab]');
-    if (!tabs.length) return;
+    const tabs = $('[data-auth-tab]');
+    const panels = $('[data-auth-panel]');
+    if (!tabs.length || !panels.length) return;
 
-    tabs.forEach(tab => tab.addEventListener('click', () => {
-      const target = tab.dataset.authTab;
-      tabs.forEach(t => t.classList.toggle('active', t === tab));
-      $$('[data-auth-panel]').forEach(p => {
-        p.hidden = p.dataset.authPanel !== target;
-      });
+    function show(target, push) {
+      if (!panels.some(p => p.dataset.authPanel === target)) return;
+
+      tabs.forEach(t => t.classList.toggle('active', t.dataset.authTab === target));
+      panels.forEach(p => { p.hidden = p.dataset.authPanel !== target; });
+
+      const title = target === 'register' ? 'Rent Easy | Create Account' : 'Rent Easy | Sign In';
+      document.title = title;
+
+      if (push) history.replaceState(null, '', '#' + target);
+      const firstField = $('input:not([type="checkbox"])', $('[data-auth-panel="' + target + '"]'));
+      firstField && firstField.focus({ preventScroll: true });
+    }
+
+    tabs.forEach(tab => tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      show(tab.dataset.authTab, true);
     }));
+
+    window.addEventListener('hashchange', () => show((location.hash || '').slice(1), false));
+
+    const initial = (location.hash || '').slice(1);
+    if (initial) show(initial, false);
   }
 
   /* ------------------------------------------------------------------ *
@@ -736,65 +753,75 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * Dashboard navigation (active link highlighting & scrollspy)
+   * Dashboard navigation — each section behaves like its own page
    * ------------------------------------------------------------------ */
   function initDashboardNav() {
     const dashNav = $('.dash-nav');
-    if (!dashNav) return;
+    const content = $('.dash-content');
+    if (!dashNav || !content) return;
 
-    const links = $$('.dash-nav a');
-    const sections = [];
-    
-    links.forEach(link => {
-      const href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        const sec = $(href);
-        if (sec) {
-          sections.push({ link, sec });
+    const links = $$('.dash-nav a[href^="#"]');
+    const panels = $$('.dash-panel', content);
+    if (!links.length || !panels.length) return;
+
+    const names = panels.map(p => p.dataset.panel);
+    const fallback = names[0];
+
+    function show(name, push) {
+      if (!names.includes(name)) name = fallback;
+
+      panels.forEach(panel => {
+        const active = panel.dataset.panel === name;
+        panel.classList.toggle('is-active', active);
+        panel.hidden = !active;
+
+        // reveal-on-scroll never fires for content that was display:none
+        if (active) {
+          if (panel.hasAttribute('data-reveal')) panel.classList.add('is-visible');
+          $$('[data-reveal]', panel).forEach(el => el.classList.add('is-visible'));
         }
+      });
+
+      links.forEach(link => {
+        const active = link.getAttribute('href') === '#' + name;
+        link.classList.toggle('active', active);
+        link.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+
+      if (push) {
+        history.pushState({ panel: name }, '', '#' + name);
+        // land at the top of the new "page", like a real navigation would
+        const top = content.getBoundingClientRect().top + window.pageYOffset -
+          (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h'), 10) || 80) - 20;
+        window.scrollTo({ top: Math.max(top, 0), behavior: prefersReducedMotion ? 'auto' : 'smooth' });
       }
-    });
+    }
 
-    let isClicking = false;
-
-    // Handle clicks
+    // nav tabs
     links.forEach(link => {
-      link.addEventListener('click', () => {
-        const href = link.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          isClicking = true;
-          links.forEach(l => l.classList.remove('active'));
-          link.classList.add('active');
-          setTimeout(() => { isClicking = false; }, 800);
-        }
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        show(link.getAttribute('href').slice(1), true);
       });
     });
 
-    // Scrollspy with IntersectionObserver
-    if ('IntersectionObserver' in window && sections.length > 0) {
-      const observerOptions = {
-        root: null,
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: 0
-      };
+    // in-page shortcuts (e.g. the Quick actions panel)
+    content.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const name = a.getAttribute('href').slice(1);
+      if (!names.includes(name)) return;
+      e.preventDefault();
+      show(name, true);
+    });
 
-      const observer = new IntersectionObserver(entries => {
-        if (isClicking) return;
-        
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = '#' + entry.target.id;
-            links.forEach(link => {
-              const active = link.getAttribute('href') === id;
-              link.classList.toggle('active', active);
-            });
-          }
-        });
-      }, observerOptions);
+    window.addEventListener('popstate', () => {
+      show((window.location.hash || '').slice(1) || fallback, false);
+    });
 
-      sections.forEach(item => observer.observe(item.sec));
-    }
+    show((window.location.hash || '').slice(1) || fallback, false);
   }
+
 
   /* ------------------------------------------------------------------ *
    * Active nav link, based on the current file name
