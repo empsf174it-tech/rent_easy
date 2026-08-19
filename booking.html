@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" dir="ltr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rent Easy | Book Your Vehicle</title>
-  <meta name="description" content="Reserve a premium vehicle in three steps — pick your car, set your dates, and confirm with a transparent, all-inclusive price.">
+  <meta name="description"
+    content="Reserve a premium vehicle in three steps — pick your car, set your dates, and confirm with a transparent, all-inclusive price.">
   <meta name="theme-color" content="#0A0F1C">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,12 +19,14 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
 </head>
+
 <body class="nav-on-dark">
 
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container nav-container">
-      <a href="index.html" class="logo"><i class="ph-fill ph-car logo-icon" aria-hidden="true"></i><span class="logo-text">RENT EASY</span></a>
+      <a href="index.html" class="logo"><i class="ph-fill ph-car logo-icon" aria-hidden="true"></i><span
+          class="logo-text">RENT EASY</span></a>
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="about.html" class="nav-link">About Us</a></li>
@@ -41,7 +48,8 @@
   <div class="drawer-overlay"></div>
   <aside class="mobile-drawer" aria-hidden="true">
     <div class="drawer-header">
-      <a href="index.html" class="logo"><i class="ph-fill ph-car logo-icon" aria-hidden="true"></i><span class="logo-text">RENT EASY</span></a>
+      <a href="index.html" class="logo"><i class="ph-fill ph-car logo-icon" aria-hidden="true"></i><span
+          class="logo-text">RENT EASY</span></a>
       <button class="close-drawer" aria-label="Close Menu"><i class="ph ph-x"></i></button>
     </div>
     <div class="drawer-links">
@@ -51,11 +59,11 @@
       <a href="booking.html" class="nav-link active">Book Now</a>
       <a href="contact.html" class="nav-link">Contact</a>
       <a href="dashboard.html" class="nav-link">Dashboard</a>
-      <a href="login.html" class="nav-link">Login</a>
     </div>
     <div class="drawer-actions">
       <button class="theme-toggle"><i class="ph ph-moon"></i> Toggle Theme</button>
       <button class="rtl-toggle"><i class="ph ph-arrows-left-right"></i> Toggle Direction</button>
+      <a href="login.html" class="btn btn-primary btn-block drawer-cta"><i class="ph ph-sign-in"></i> Login</a>
     </div>
   </aside>
 
@@ -96,7 +104,7 @@
             </div>
 
             <form id="booking-form" class="validate-form"
-                  data-success-message="Booking confirmed — a confirmation email is on its way.">
+              data-success-message="Booking confirmed — a confirmation email is on its way.">
 
               <!-- Step 1 -->
               <div class="wizard-panel is-active" data-step="1">
@@ -104,42 +112,42 @@
 
                 <div class="picker-grid mb-0">
                   <button type="button" class="picker-tile" data-value="lexus-es">
-                    <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <img src="assets/images/lexus-es.jpg" alt="" loading="lazy">
                     <div class="picker-tile-body">
                       <strong>Lexus ES 350</strong>
                       <span><b>$95</b> / day · Hybrid</span>
                     </div>
                   </button>
                   <button type="button" class="picker-tile" data-value="bmw-4">
-                    <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <img src="assets/images/bmw-4.jpg" alt="" loading="lazy">
                     <div class="picker-tile-body">
                       <strong>BMW 4 Series</strong>
                       <span><b>$120</b> / day · Sedan</span>
                     </div>
                   </button>
                   <button type="button" class="picker-tile" data-value="tesla-s">
-                    <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <img src="assets/images/tesla-s.jpg" alt="" loading="lazy">
                     <div class="picker-tile-body">
                       <strong>Tesla Model S</strong>
                       <span><b>$180</b> / day · Electric</span>
                     </div>
                   </button>
                   <button type="button" class="picker-tile" data-value="range-rover">
-                    <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <img src="assets/images/range-rover.jpg" alt="" loading="lazy">
                     <div class="picker-tile-body">
                       <strong>Range Rover Velar</strong>
                       <span><b>$200</b> / day · SUV</span>
                     </div>
                   </button>
                   <button type="button" class="picker-tile" data-value="porsche-911">
-                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <img src="assets/images/porsche-911.jpg" alt="" loading="lazy">
                     <div class="picker-tile-body">
                       <strong>Porsche 911</strong>
                       <span><b>$250</b> / day · Sports</span>
                     </div>
                   </button>
                   <button type="button" class="picker-tile" data-value="corvette-c8">
-                    <img src="https://images.unsplash.com/photo-1542282088-fe8426682b8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="" loading="lazy">
+                    <img src="assets/images/corvette-c8.jpg" alt="" loading="lazy">
                     <div class="picker-tile-body">
                       <strong>Corvette C8</strong>
                       <span><b>$300</b> / day · Supercar</span>
@@ -151,15 +159,24 @@
                   <label class="form-label" for="vehicle">Or select from the full list *</label>
                   <select class="form-control" id="vehicle" name="vehicle" required>
                     <option value="">Select your premium ride…</option>
-                    <option value="lexus-es"     data-price="95"  data-label="Lexus ES 350 Hybrid">Lexus ES 350 Hybrid ($95/day)</option>
-                    <option value="bmw-4"        data-price="120" data-label="BMW 4 Series Gran Coupe">BMW 4 Series Gran Coupe ($120/day)</option>
-                    <option value="audi-q7"      data-price="165" data-label="Audi Q7 Quattro">Audi Q7 Quattro ($165/day)</option>
-                    <option value="tesla-s"      data-price="180" data-label="Tesla Model S Plaid">Tesla Model S Plaid ($180/day)</option>
-                    <option value="range-rover"  data-price="200" data-label="Range Rover Velar">Range Rover Velar ($200/day)</option>
-                    <option value="porsche-911"  data-price="250" data-label="Porsche 911 Carrera">Porsche 911 Carrera ($250/day)</option>
-                    <option value="g-class"      data-price="280" data-label="Mercedes-Benz G-Class">Mercedes-Benz G-Class ($280/day)</option>
-                    <option value="amg-gt"       data-price="290" data-label="Mercedes-AMG GT Coupe">Mercedes-AMG GT Coupe ($290/day)</option>
-                    <option value="corvette-c8"  data-price="300" data-label="Chevrolet Corvette C8">Chevrolet Corvette C8 ($300/day)</option>
+                    <option value="lexus-es" data-price="95" data-label="Lexus ES 350 Hybrid">Lexus ES 350 Hybrid
+                      ($95/day)</option>
+                    <option value="bmw-4" data-price="120" data-label="BMW 4 Series Gran Coupe">BMW 4 Series Gran Coupe
+                      ($120/day)</option>
+                    <option value="audi-q7" data-price="165" data-label="Audi Q7 Quattro">Audi Q7 Quattro ($165/day)
+                    </option>
+                    <option value="tesla-s" data-price="180" data-label="Tesla Model S Plaid">Tesla Model S Plaid
+                      ($180/day)</option>
+                    <option value="range-rover" data-price="200" data-label="Range Rover Velar">Range Rover Velar
+                      ($200/day)</option>
+                    <option value="porsche-911" data-price="250" data-label="Porsche 911 Carrera">Porsche 911 Carrera
+                      ($250/day)</option>
+                    <option value="g-class" data-price="280" data-label="Mercedes-Benz G-Class">Mercedes-Benz G-Class
+                      ($280/day)</option>
+                    <option value="amg-gt" data-price="290" data-label="Mercedes-AMG GT Coupe">Mercedes-AMG GT Coupe
+                      ($290/day)</option>
+                    <option value="corvette-c8" data-price="300" data-label="Chevrolet Corvette C8">Chevrolet Corvette
+                      C8 ($300/day)</option>
                   </select>
                   <span class="error-msg"></span>
                 </div>
@@ -266,12 +283,14 @@
                 <div class="grid grid-2" style="gap: var(--spacing-3);">
                   <div class="form-group">
                     <label class="form-label" for="firstname">First Name *</label>
-                    <input type="text" class="form-control" id="firstname" name="firstname" autocomplete="given-name" required>
+                    <input type="text" class="form-control" id="firstname" name="firstname" autocomplete="given-name"
+                      required>
                     <span class="error-msg"></span>
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="lastname">Last Name *</label>
-                    <input type="text" class="form-control" id="lastname" name="lastname" autocomplete="family-name" required>
+                    <input type="text" class="form-control" id="lastname" name="lastname" autocomplete="family-name"
+                      required>
                     <span class="error-msg"></span>
                   </div>
                   <div class="form-group">
@@ -288,11 +307,13 @@
 
                 <div class="form-group">
                   <label class="form-label" for="notes">Anything we should know?</label>
-                  <textarea class="form-control" id="notes" name="notes" rows="3" placeholder="Flight number, preferred handover time, accessibility needs…"></textarea>
+                  <textarea class="form-control" id="notes" name="notes" rows="3"
+                    placeholder="Flight number, preferred handover time, accessibility needs…"></textarea>
                 </div>
 
                 <!-- Payment Placeholder -->
-                <div style="background-color: var(--bg-alt); padding: var(--spacing-4); border-radius: var(--radius); margin-top: var(--spacing-4); text-align: center; border: 1px dashed var(--border-strong);">
+                <div
+                  style="background-color: var(--bg-alt); padding: var(--spacing-4); border-radius: var(--radius); margin-top: var(--spacing-4); text-align: center; border: 1px dashed var(--border-strong);">
                   <i class="ph ph-credit-card" style="font-size: 2rem; color: var(--accent);"></i>
                   <p style="color: var(--text-muted); font-size: var(--fs-small); margin-top: var(--spacing-2);">
                     Stripe / PayPal payment integration placeholder — nothing is charged in this demo.
@@ -302,7 +323,8 @@
                 <div class="form-group mt-4">
                   <label class="checkbox-group">
                     <input type="checkbox" id="terms" name="terms" required>
-                    <span>I agree to the <a href="#" class="text-gold">Terms &amp; Conditions</a> and the <a href="#" class="text-gold">Rental Agreement</a>, and confirm I hold a valid driving licence.</span>
+                    <span>I agree to the <a href="#" class="text-gold">Terms &amp; Conditions</a> and the <a href="#"
+                        class="text-gold">Rental Agreement</a>, and confirm I hold a valid driving licence.</span>
                   </label>
                   <span class="error-msg"></span>
                 </div>
@@ -359,7 +381,8 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-col">
-          <span class="logo"><i class="ph-fill ph-car logo-icon" aria-hidden="true"></i><span class="logo-text">RENT EASY</span></span>
+          <span class="logo"><i class="ph-fill ph-car logo-icon" aria-hidden="true"></i><span class="logo-text">RENT
+              EASY</span></span>
           <p style="color: rgba(255,255,255,0.62); margin-top: var(--spacing-3); max-width: 280px;">
             Redefining premium car rentals with an exceptional fleet and unparalleled service.
           </p>
@@ -412,4 +435,5 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/booking.js"></script>
 </body>
+
 </html>

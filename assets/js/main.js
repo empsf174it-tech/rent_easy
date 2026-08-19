@@ -579,8 +579,8 @@
    * Auth tabs (login / register)
    * ------------------------------------------------------------------ */
   function initAuthTabs() {
-    const tabs = $('[data-auth-tab]');
-    const panels = $('[data-auth-panel]');
+    const tabs = $$('[data-auth-tab]');
+    const panels = $$('[data-auth-panel]');
     if (!tabs.length || !panels.length) return;
 
     function show(target, push) {
