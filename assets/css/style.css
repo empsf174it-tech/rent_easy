@@ -518,6 +518,25 @@ section {
   gap: var(--spacing-3);
 }
 
+/* dashboard: theme + direction controls stay in the bar once the drawer is gone */
+.nav-actions .nav-compact {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .nav-actions .nav-compact {
+    display: inline-flex;
+  }
+}
+
+/* dashboard: the menu button leads the bar, sitting before the logo */
+.nav-start {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
 .hamburger {
   display: none;
   background: none;
@@ -526,7 +545,13 @@ section {
   color: var(--text-main);
   cursor: pointer;
   line-height: 1;
-  padding: 6px;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  align-items: center;
+  justify-content: center;
+  flex: none;
 }
 
 .theme-toggle,
@@ -1733,8 +1758,14 @@ section {
   max-width: 56ch;
 }
 
+.split .check-list {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
 .split .check-list li {
-  justify-content: center;
+  justify-content: flex-start;
   text-align: left;
 }
 
@@ -2411,7 +2442,39 @@ input[type="range"]::-moz-range-thumb {
   display: block;
 }
 
+/* Catalogue layout: flex rather than grid, so a lone card on the final row
+   centres itself at every breakpoint no matter how many cards the filter hides. */
+#fleet-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-6);
+}
+
+#fleet-grid>.vehicle-card {
+  flex: 1 1 300px;
+  max-width: calc((100% - 2 * var(--spacing-6)) / 3);
+}
+
+@media (max-width: 1023px) {
+  #fleet-grid>.vehicle-card {
+    max-width: calc((100% - var(--spacing-6)) / 2);
+  }
+}
+
+@media (max-width: 560px) {
+  #fleet-grid>.vehicle-card {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
 /* List layout for the catalogue */
+#fleet-grid.is-list>.vehicle-card {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
 #fleet-grid.is-list .vehicle-card {
   flex-direction: row;
 }
@@ -3592,32 +3655,6 @@ input[type="range"]::-moz-range-thumb {
   .toolbar-row {
     grid-template-columns: 1fr 1fr;
   }
-
-  .dash-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* tablet: no side rail — lay the links out as a full-width tab grid
-     so nothing is pushed off the edge of a scroll strip */
-  .dash-nav {
-    position: static;
-    padding: var(--spacing-2);
-  }
-
-  .dash-nav ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: .35rem;
-    overflow: visible;
-  }
-
-  .dash-nav a {
-    justify-content: center;
-    white-space: nowrap;
-    gap: .5rem;
-    padding: .65rem var(--spacing-2);
-    min-height: 48px;
-  }
 }
 
 @media (max-width: 1024px) {
@@ -3632,7 +3669,7 @@ input[type="range"]::-moz-range-thumb {
   }
 
   .hamburger {
-    display: block;
+    display: inline-flex;
   }
 
   .hero {
@@ -3812,6 +3849,35 @@ input[type="range"]::-moz-range-thumb {
 @media (max-width: 360px) {
   .container {
     padding: 0 var(--spacing-3);
+  }
+
+  /* narrowest phones: keep the logo and the menu button inside the gutters */
+  .nav-container {
+    gap: var(--spacing-2);
+  }
+
+  .logo {
+    font-size: 1.15rem;
+    letter-spacing: .08em;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .nav-actions {
+    gap: var(--spacing-2);
+  }
+
+  .hamburger {
+    width: 40px;
+    height: 40px;
+    font-size: 1.45rem;
+  }
+
+  .nav-compact {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
   }
 
   .mobile-drawer {
@@ -4057,32 +4123,99 @@ input[type="range"]::-moz-range-thumb {
   }
 }
 
-/* ============ Dashboard side-nav on phones ============ */
-/* the 1100px rule turns the nav into a horizontal scroll strip, which hides
-   most of the links on a 360px screen — wrap them into a grid instead */
-@media (max-width: 560px) {
+/* ============ Dashboard side nav: off-canvas below 1024px ============ */
+/* Desktop keeps the sticky rail; tablet and phone get a hamburger that slides
+   the same nav in from the start edge, so no link is ever cut off. */
+.dash-nav-head,
+.dash-nav-overlay {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .dash-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .dash-nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(12, 10, 8, .55);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    z-index: 1100;
+    opacity: 0;
+    transition: opacity .35s var(--ease-out);
+  }
+
+  .dash-nav-overlay[hidden] {
+    display: none;
+  }
+
+  .dash-nav-overlay.open {
+    opacity: 1;
+  }
+
   .dash-nav {
-    padding: var(--spacing-2);
+    position: fixed;
+    top: 0;
+    inset-inline-start: -100%;
+    width: 82%;
+    max-width: 320px;
+    height: 100dvh;
+    z-index: 1101;
+    border-radius: 0;
+    border: none;
+    border-inline-end: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-4) var(--spacing-3) var(--spacing-6);
+    overflow-y: auto;
+    transition: inset-inline-start .4s var(--ease-out);
+  }
+
+  .dash-nav.open {
+    inset-inline-start: 0;
+  }
+
+  /* the rail is reveal-animated on desktop; off-canvas it must not be shifted */
+  .dash-nav[data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .dash-nav-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-3);
+    padding-bottom: var(--spacing-3);
+    margin-bottom: var(--spacing-3);
+    border-bottom: 1px solid var(--border-color);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--primary);
   }
 
   .dash-nav ul {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: .35rem;
-    overflow-x: visible;
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    overflow: visible;
   }
 
   .dash-nav a {
-    white-space: nowrap;
     justify-content: flex-start;
-    gap: .5rem;
-    padding: .6rem .7rem;
-    min-height: 44px;
-    font-size: .875rem;
+    min-height: 50px;
+    font-size: 1rem;
   }
 
-  .dash-nav a i {
-    font-size: 1.05rem;
+}
+
+@media (max-width: 560px) {
+  .dash-nav {
+    width: 86%;
+    max-width: 300px;
   }
 }
 

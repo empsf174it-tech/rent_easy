@@ -89,11 +89,13 @@
    * Mobile drawer
    * ------------------------------------------------------------------ */
   function initDrawer() {
-    const hamburger = $('.hamburger');
     const drawer = $('.mobile-drawer');
     const overlay = $('.drawer-overlay');
     const closeBtn = $('.close-drawer');
     if (!drawer) return;
+
+    // On the dashboard the hamburger belongs to the dashboard side nav instead
+    const hamburger = $('.dash-nav') ? null : $('.hamburger');
 
     let lastFocus = null;
 
@@ -767,6 +769,53 @@
     const names = panels.map(p => p.dataset.panel);
     const fallback = names[0];
 
+    // Off-canvas side nav (tablet + phone) — driven by the navbar hamburger
+    const navToggle = $('.hamburger');
+    const navOverlay = $('.dash-nav-overlay');
+    const navCurrent = $('[data-dash-nav-current]');
+
+    function closeNav() {
+      dashNav.classList.remove('open');
+      if (navOverlay) {
+        navOverlay.classList.remove('open');
+        navOverlay.hidden = true;
+      }
+      if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    function openNav() {
+      dashNav.classList.add('open');
+      if (navOverlay) {
+        navOverlay.hidden = false;
+        // let the element paint before the opacity transition starts
+        requestAnimationFrame(() => navOverlay.classList.add('open'));
+      }
+      if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      const active = dashNav.querySelector('a.active');
+      if (active) active.focus();
+    }
+
+    if (navToggle) {
+      navToggle.setAttribute('aria-controls', 'dash-nav');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.addEventListener('click', () => {
+        dashNav.classList.contains('open') ? closeNav() : openNav();
+      });
+    }
+    $$('[data-dash-nav="close"]').forEach(el => el.addEventListener('click', closeNav));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && dashNav.classList.contains('open')) {
+        closeNav();
+        if (navToggle) navToggle.focus();
+      }
+    });
+    // a resize back to desktop must not leave the body locked
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 1024 && dashNav.classList.contains('open')) closeNav();
+    });
+
     function show(name, push) {
       if (!names.includes(name)) name = fallback;
 
@@ -786,7 +835,12 @@
         const active = link.getAttribute('href') === '#' + name;
         link.classList.toggle('active', active);
         link.setAttribute('aria-selected', active ? 'true' : 'false');
+        // the collapsed toggle shows which section you are on
+        if (active && navCurrent) navCurrent.textContent = link.textContent.trim();
       });
+
+      // picking a section on tablet/phone closes the off-canvas rail
+      closeNav();
 
       if (push) {
         history.pushState({ panel: name }, '', '#' + name);

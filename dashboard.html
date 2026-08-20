@@ -23,8 +23,11 @@
 
   <nav class="navbar solid">
     <div class="container nav-container">
-      <a href="index.html" class="logo"><i class="ph-fill ph-car logo-icon" aria-hidden="true"></i><span
-          class="logo-text">RENT EASY</span></a>
+      <div class="nav-start">
+        <button class="hamburger" aria-label="Dashboard menu"><i class="ph ph-list"></i></button>
+        <a href="index.html" class="logo"><i class="ph-fill ph-car logo-icon" aria-hidden="true"></i><span
+            class="logo-text">RENT EASY</span></a>
+      </div>
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">Home</a></li>
         <li><a href="about.html" class="nav-link">About Us</a></li>
@@ -36,8 +39,10 @@
       <div class="nav-actions">
         <button class="theme-toggle desktop-only" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
         <button class="rtl-toggle desktop-only" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
-        <a href="login.html" class="btn btn-outline btn-sm desktop-only">Logout</a>
-        <button class="hamburger" aria-label="Menu"><i class="ph ph-list"></i></button>
+        <a href="index.html" class="btn btn-outline btn-sm desktop-only">Logout</a>
+        <!-- same controls for tablet/phone, where the drawer no longer carries them -->
+        <button class="theme-toggle nav-compact" aria-label="Toggle Dark Mode"><i class="ph ph-moon"></i></button>
+        <button class="rtl-toggle nav-compact" aria-label="Toggle RTL"><i class="ph ph-arrows-left-right"></i></button>
       </div>
     </div>
   </nav>
@@ -61,7 +66,7 @@
     <div class="drawer-actions">
       <button class="theme-toggle"><i class="ph ph-moon"></i> Toggle Theme</button>
       <button class="rtl-toggle"><i class="ph ph-arrows-left-right"></i> Toggle Direction</button>
-      <a href="login.html" class="btn btn-primary btn-block drawer-cta"><i class="ph ph-sign-out"></i> Logout</a>
+      <a href="index.html" class="btn btn-primary btn-block drawer-cta"><i class="ph ph-sign-out"></i> Logout</a>
     </div>
   </aside>
 
@@ -81,10 +86,18 @@
         </a>
       </div>
 
+      <div class="dash-nav-overlay" data-dash-nav="close" hidden></div>
+
       <div class="dash-grid">
 
         <!-- Side nav -->
-        <nav class="dash-nav" data-reveal="left">
+        <nav class="dash-nav" id="dash-nav" data-reveal="left" aria-label="Dashboard sections">
+          <div class="dash-nav-head">
+            <span>Dashboard</span>
+            <button class="close-drawer dash-nav-close" type="button" data-dash-nav="close" aria-label="Close dashboard menu">
+              <i class="ph ph-x" aria-hidden="true"></i>
+            </button>
+          </div>
           <ul role="tablist">
             <li><a href="#overview" id="tab-overview" role="tab" class="active"><i class="ph ph-squares-four"></i>
                 Overview</a></li>
@@ -93,7 +106,7 @@
             <li><a href="#invoices" id="tab-invoices" role="tab"><i class="ph ph-receipt"></i> Invoices</a></li>
             <li><a href="#shortlist" id="tab-shortlist" role="tab"><i class="ph ph-heart"></i> Shortlist</a></li>
             <li><a href="#profile" id="tab-profile" role="tab"><i class="ph ph-user-circle"></i> Profile</a></li>
-            <li><a href="login.html"><i class="ph ph-sign-out"></i> Logout</a></li>
+            <li><a href="index.html"><i class="ph ph-sign-out"></i> Logout</a></li>
           </ul>
         </nav>
 
