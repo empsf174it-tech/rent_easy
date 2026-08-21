@@ -3854,6 +3854,9 @@ input[type="range"]::-moz-range-thumb {
   /* narrowest phones: keep the logo and the menu button inside the gutters */
   .nav-container {
     gap: var(--spacing-2);
+    /* nav keeps a wider gutter than the rest of the page so the menu button
+       never reads as flush with the screen edge, scrolled or not */
+    padding-inline: var(--spacing-4);
   }
 
   .logo {
